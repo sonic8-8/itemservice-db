@@ -35,4 +35,64 @@
         </where>
     </select>
 
+<!--    동적 쿼리-->
+<!--    <select id="findActiveBlogWithTitleLike" resultType="Blog">-->
+<!--        select * from blog-->
+<!--        where state = 'ACTIVE'-->
+<!--        <if test="title != null">-->
+<!--            and title like #{title}-->
+<!--        </if>-->
+<!--    </select>-->
+<!--    -->
+<!--    <select id="findActiveBlogWithTitleLike" resultType="Blog">-->
+<!--        select * from blog where state = 'ACTIVE'-->
+<!--        <choose>-->
+<!--            <when test = "title != null">-->
+<!--                and title like #{title}-->
+<!--            </when>-->
+<!--            <when test = "author != null and author.name != null">-->
+<!--                and author-name like #{author.name}-->
+<!--            </when>-->
+<!--            <otherwise>-->
+<!--                and featured = 1-->
+<!--            </otherwise>-->
+<!--        </choose>-->
+<!--    </select>-->
+<!--    -->
+<!--    <trim prefix = "where" prefixOverrides="AND | OR">-->
+<!--        -->
+<!--    </trim>-->
+<!--    -->
+<!--    <select id="selectPostIn" resultType="domain.blog.Post">-->
+<!--        select * from post p-->
+<!--        <where>-->
+<!--            <foreach item="item" index="index" collection="list" open="ID in (" separator="," close=")">-->
+<!--                #{item}-->
+<!--            </foreach>-->
+<!--        </where>-->
+<!--    </select>-->
+
+<!--    기타 기능-->
+<!--    <sql id="userColumns">${alias}.id, ${alias.username, ${alias}.password</sql>-->
+
+<!--    <select id="selectUsers" resultType="map">-->
+<!--        select-->
+<!--            <include refid="userColumns"><property name="alias" value="t1"/></include>-->
+<!--            <include refid="userColumns"><property name="alias" value="t2"/></include>-->
+<!--        from some_table t1-->
+<!--        cross join some_table t2-->
+<!--    </select>-->
+
+<!--    <resultMap id="userResultMap" type="User">-->
+<!--        <id property="id" column="user_id"/>-->
+<!--        <result property="username" column="user_name"/>-->
+<!--        <result property="password" column="password"/>-->
+<!--    </resultMap>-->
+
+<!--    <select id="selectUsers" resultMap="userResultMap">-->
+<!--        select user_id, user_name, password-->
+<!--        from some_table-->
+<!--        where id = #{id}-->
+<!--    </select>-->
+
 </mapper>
