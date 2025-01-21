@@ -17,7 +17,8 @@ public interface ItemMapper {
 
     void update(@Param("id") Long id, @Param("updateParam")ItemUpdateDto updateParam);
 
-    @Select("select id, item_name, price, quantity from item where id = #{id}")
+    // 인터페이스에서 query 작성 가능하지만 이러면 MyBatis의 장점을 살리지 못함
+//    @Select("select id, item_name, price, quantity from item where id = #{id}")
     Optional<Item> findById(Long id);
 
     List<Item> findAll(ItemSearchCond itemSearch);
